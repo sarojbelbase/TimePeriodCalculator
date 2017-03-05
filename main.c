@@ -6,16 +6,7 @@ int main(int argc, char const *argv[])
 	printf("What's the Starting Time ?\n");
 	scanf("%d%d",&AStart,&BStart);
 	printf("When it's gonna end, then ?\n");
-	scanf("%d%d",&AEnd,&BEnd);
-   
-   while(AStart==AEnd)
-		{
-		AResult=0;
-		BResult=0;
-		CResult=BEnd-BNew;
-		AEnd=AEnd-12;
-		AStart=AStart-12;
-		}	
+	scanf("%d%d",&AEnd,&BEnd);	
 
    if (AStart<AEnd)
 	
@@ -85,7 +76,7 @@ int main(int argc, char const *argv[])
 	Result=(AResult+BResult+CResult);
 	printf("\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n",AStart,AEnd,BEnd,ANew,BNew,AResult,BResult,CResult);
 
-	//printf("Actually, Sir Will Teach for only %d Minutes.\n",Got);
-	//printf("\t\t\t\t\t You better wait for %d Minutes more. \n", Result);
+	printf("Actually, Sir Will Teach for only %d Minutes.\n",Got);
+	printf("\t\t\t\t\t You better wait for %d Minutes more. \n", Result);
 	return 0;
 }
