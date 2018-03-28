@@ -1,25 +1,52 @@
 #include <iostream>
 #include <iomanip>
 using namespace std;
-int StartingHours,StartingMinute,StartingSecond,EndingHours,EndingMinute,EndingSecond,TotalStartingSecs,TotalEndingSecs,VeryTotalSecs;
-string StartingTimeHalf, EndingTimeHalf;
-float PercentOfMonth,PercentOfDay;
-void BothSameHalves();
-void OppositeHalves();
+class DurationCalculator
+{ 
+  private:  
+                int StartingHours,StartingMinute,StartingSecond,EndingHours,EndingMinute,EndingSecond;
+                int TotalStartingSecs,TotalEndingSecs,VeryTotalSecs;
+                int AmountOfMinutes, ExactSeconds, ExactHours, ExactMinutes;
+                float PercentOfMonth,PercentOfDay;
+                string StartingTimeHalf, EndingTimeHalf;
+  public:   
+                void BothSameHalves();
+                void OppositeHalves();
+                void AskQuestions();
+                void NotActualAlgorithm();
+                void ConverterAndStuff();
+                void PrintingStuffs();
+};
 int main(int argc, char const *argv[])
 {
- cout << "What's the Starting Time ? ( Example: 12: 40: 36 PM)"<<endl;
-  cin >>StartingHours>>StartingMinute>>StartingSecond>>StartingTimeHalf;
-  cout << "When it's gonna end, then ? ( Example: 5: 20: 36 AM)"<<endl;  
-  cin >>EndingHours>>EndingMinute>>EndingSecond>>EndingTimeHalf; //Asked about the first CalculatedHours time, minute time & remaining CalculatedHours time. 
-  //Algorithmforbothonamorpm
-  if((StartingTimeHalf=="AM" || StartingTimeHalf == "am") && (EndingTimeHalf=="AM" || EndingTimeHalf == "am" ))
+DurationCalculator calc; 
+// setting classes
+calc.AskQuestions();
+//Algorithmforbothonamorpm
+calc.NotActualAlgorithm();
+//Converting to Minutes & Seconds
+calc.ConverterAndStuff();
+// Prints Output
+calc.PrintingStuffs();
+return 0;
+}
+void DurationCalculator :: AskQuestions()
+                {
+                    cout << "What's the Starting Time ? ( Example: 12: 40: 36 PM)"<<endl;
+                    cin >>StartingHours>>StartingMinute>>StartingSecond>>StartingTimeHalf;
+                    cout << "When it's gonna end, then ? ( Example: 5: 20: 36 AM)"<<endl;  
+                    cin >>EndingHours>>EndingMinute>>EndingSecond>>EndingTimeHalf;
+                     //Asked about the first CalculatedHours time, minute time & remaining CalculatedHours time. 
+                }
+void DurationCalculator :: NotActualAlgorithm()
+{
+    if((StartingTimeHalf=="AM" || StartingTimeHalf == "am") && (EndingTimeHalf=="AM" || EndingTimeHalf == "am" ))
   { 
     BothSameHalves();
   } 
     if ((StartingTimeHalf=="PM" || StartingTimeHalf == "pm") && (EndingTimeHalf=="PM" || EndingTimeHalf == "pm"))
     {
-        BothSameHalves(); 
+      BothSameHalves(); 
     }
     else if((StartingTimeHalf=="AM" || StartingTimeHalf == "am") && (EndingTimeHalf=="PM" || EndingTimeHalf == "pm" ))
   { 
@@ -27,16 +54,21 @@ int main(int argc, char const *argv[])
   } 
     else if ((StartingTimeHalf=="PM" || StartingTimeHalf == "pm" ) && (EndingTimeHalf=="AM" || EndingTimeHalf == "am"))
     {
-        OppositeHalves(); 
+       OppositeHalves(); 
     }
-    //Converting to Minutes & Seconds
-   int AmountOfMinutes=VeryTotalSecs/60;
-   int ExactSeconds=VeryTotalSecs%60;
+}
+void DurationCalculator :: ConverterAndStuff()
+{
+   AmountOfMinutes=VeryTotalSecs/60;
+   ExactSeconds=VeryTotalSecs%60;
    //Converting AmountOfMinutes into hours
-   int ExactHours=AmountOfMinutes/60;
-   int ExactMinutes=AmountOfMinutes%60;
+   ExactHours=AmountOfMinutes/60;
+   ExactMinutes=AmountOfMinutes%60;
    PercentOfDay=(((float)VeryTotalSecs/86400)*100);
    PercentOfMonth=PercentOfDay/30;
+}
+void DurationCalculator :: PrintingStuffs()
+{
    cout<<endl<<endl;
    cout<<"The duration between "<<StartingHours<<":"<<StartingMinute<<":"<<StartingSecond<<StartingTimeHalf<<" & ";
    cout<<EndingHours<<":"<<EndingMinute<<":"<<EndingSecond<<EndingTimeHalf<<" is ";
@@ -48,9 +80,8 @@ int main(int argc, char const *argv[])
    cout<<ExactHours<<" Hours"<<endl;
    cout<<fixed<<setprecision(2)<<PercentOfDay<<"% "<<"of a 24 hour day."<<endl;
    cout<<PercentOfMonth<<"% "<<"of a month."<<endl;
-  return 0;
 }
-void BothSameHalves()
+void DurationCalculator :: BothSameHalves()
 {
   TotalStartingSecs=(StartingHours*60*60)+(StartingMinute*60)+StartingSecond;
   TotalEndingSecs=(EndingHours*60*60)+(EndingMinute*60)+EndingSecond;
@@ -63,7 +94,7 @@ void BothSameHalves()
     VeryTotalSecs=TotalEndingSecs-TotalStartingSecs;
     }
 }
-void OppositeHalves()
+void DurationCalculator :: OppositeHalves()
 {
   TotalStartingSecs=(StartingHours*60*60)+(StartingMinute*60)+StartingSecond;
   TotalEndingSecs=((EndingHours+12)*60*60)+(EndingMinute*60)+EndingSecond;
