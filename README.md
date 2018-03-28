@@ -1,37 +1,24 @@
-## Welcome to GitHub Pages
+### Duration Calculator
 
-You can use the [editor on GitHub](https://github.com/sidbelbase/MinutesCalculator/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Simply a C++ program that asks a Starting time in AM/PM format and Ending Time in respective format. It gives the exact hours, minutes and seconds between two points including other formats.
 
-### Markdown
+DEMO:
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+What's the Starting Time ? ( Example: 12: 40: 36 PM)
 
-```markdown
-Syntax highlighted code block
+INPUT >> 12 40 36 PM
 
-# Header 1
-## Header 2
-### Header 3
+When it's gonna end, then ? ( Example: 5: 20: 36 AM)
 
-- Bulleted
-- List
+INPUT >> 5 20 36 AM
 
-1. Numbered
-2. List
+The duration between 12:40:36PM & 5:20:36AM is 4hours, 40 minutes and 0 seconds.
 
-**Bold** and _Italic_ and `Code` text
+Alternate Time Units:
 
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/sidbelbase/MinutesCalculator/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+16800 Seconds
+280 Minutes
+4 Hours
+19.44% of a 24 hour day.
+0.65% of a month.
